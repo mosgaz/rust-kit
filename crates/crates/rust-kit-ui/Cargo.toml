@@ -1,0 +1,30 @@
+[package]
+name = "ui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+hydrate = ["leptos/hydrate"]
+ssr = ["leptos/ssr", "registry/ssr"]
+
+[dependencies]
+# ─── Компоненты из форка ───
+registry = { workspace = true }
+leptos_ui = { workspace = true }
+icons = { workspace = true }
+tw_merge = { workspace = true }
+
+# ─── Leptos ───
+leptos = { workspace = true }
+leptos_router = { workspace = true }
+leptos_meta = { workspace = true }
+
+# ─── Прочее ───
+serde = { workspace = true }
+wasm-bindgen = { workspace = true }
+web-sys = { workspace = true }

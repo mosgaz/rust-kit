@@ -1,9 +1,9 @@
 [workspace]
-resolver = "2"
+resolver = "3"
 members = [
-	# Внутренние крейты
+	# ─── Внутренние крейты ───
 	"crates/*",
-	# Вендорные крейты форка
+	# ─── Вендорные крейты форка ───
 	"vendor/rust-leptos-ui/app",
 	"vendor/rust-leptos-ui/server",
 	"vendor/rust-leptos-ui/app_crates/*",
@@ -27,3 +27,94 @@ exclude = [
 version = "0.1.0"
 edition = "2024"
 license = "MIT"
+
+[workspace.dependencies]
+# ─── Внутренние крейты форка ───
+tw_merge = { path = "vendor/rust-leptos-ui/crates/tw_merge/tw_merge", features = ["variant", "debug"] }
+leptos_ui = { path = "vendor/rust-leptos-ui/crates/leptos_ui" }
+icons = { path = "vendor/rust-leptos-ui/crates/icons", features = ["leptos", "leptos_animated"] }
+markdown_crate = { path = "vendor/rust-leptos-ui/crates/_markdown_crate", features = ["leptos"] }
+autoform = { path = "vendor/rust-leptos-ui/crates/autoform" }
+registry = { path = "vendor/rust-leptos-ui/app_crates/registry" }
+
+# ─── Внутренние пакеты ───
+ui = { path = "crates/rust-kit-ui" }
+showcase = { path = "crates/rust-kit-showcase" }
+
+# ─── Внешние зависимости ───
+axum = "0.8"
+console_error_panic_hook = "0.1"
+heck = "0.5"
+http = "1"
+itertools = "0.12"
+leptos = { version = "0.8", features = ["nightly"] }
+leptos_axum = "0.8"
+leptos_meta = "0.8"
+leptos_router = { version = "0.8", features = ["nightly"] }
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0"
+strum = { version = "0.27", features = ["derive"] }
+time = { version = "0.3", features = ["serde", "wasm-bindgen"] }
+tokio = { version = "1", features = ["rt-multi-thread"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["fs"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = "2.5"
+validator = { version = "0.20", features = ["derive"] }
+js-sys = "0.3"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", default-features = false, features = [
+    "Clipboard", "console", "CssStyleDeclaration", "Document", "DomRect",
+    "DomTokenList", "DragEvent", "Element", "Event", "EventTarget", "Headers",
+    "HtmlElement", "HtmlInputElement", "InputEvent", "KeyboardEvent", "Location",
+    "MediaQueryList", "MouseEvent", "MutationObserver", "MutationObserverInit",
+    "MutationRecord", "Navigator", "Node", "NodeList", "Request", "RequestInit",
+    "RequestMode", "Response", "Storage", "Window",
+] }
+
+# ─── Профили ───
+[profile.dev]
+debug = false
+panic = "abort"
+incremental = true
+codegen-units = 256
+overflow-checks = false
+split-debuginfo = "unpacked"
+
+[profile.dev.build-override]
+opt-level = 3
+codegen-units = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 'z'
+
+[profile.server-dev]
+inherits = "dev"
+codegen-backend = "cranelift"
+
+# ─── Линты ───
+[workspace.lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+indexing_slicing = "deny"
+await_holding_lock = "deny"
+dbg_macro = "deny"
+undocumented_unsafe_blocks = "deny"
+enum_glob_use = "deny"
+missing_safety_doc = "deny"
+get_unwrap = "deny"
+infinite_loop = "deny"
+large_stack_arrays = "deny"
+
+[workspace.lints.rust]
+irrefutable_let_patterns = "deny"
