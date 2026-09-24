@@ -1,0 +1,29 @@
+[workspace]
+resolver = "2"
+members = [
+	# Внутренние крейты
+	"crates/*",
+	# Вендорные крейты форка
+	"vendor/rust-leptos-ui/app",
+	"vendor/rust-leptos-ui/server",
+	"vendor/rust-leptos-ui/app_crates/*",
+	"vendor/rust-leptos-ui/crates/leptos_ui",
+	"vendor/rust-leptos-ui/crates/icons",
+	"vendor/rust-leptos-ui/crates/autoform",
+	"vendor/rust-leptos-ui/crates/_markdown_crate",
+	"vendor/rust-leptos-ui/crates/tw_merge/tw_merge",
+	"vendor/rust-leptos-ui/crates/tw_merge/tw_merge_variants",
+]
+exclude = [
+	"vendor/rust-leptos-ui/crates/ui-cli",
+	"vendor/rust-leptos-ui/crates/ui-cli-ratatui",
+	"vendor/rust-leptos-ui/crates/_starters",
+	"vendor/rust-leptos-ui/crates/_markdown_config",
+	"vendor/rust-leptos-ui/src-tauri",
+	"vendor/rust-leptos-ui/dioxus-ui",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
