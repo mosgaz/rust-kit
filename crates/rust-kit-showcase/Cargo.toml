@@ -9,7 +9,7 @@ crate-type = ["cdylib", "rlib"]
 
 [[bin]]
 name = "showcase"
-path = "src/bin/main.rs"
+path = "src/main.rs"
 
 [features]
 default = []
@@ -22,11 +22,11 @@ ssr = [
     "dep:tower-http",
     "dep:tracing",
     "dep:tracing-subscriber",
-    "ui/ssr",
+    # "ui/ssr",
 ]
 
 [dependencies]
-ui = { workspace = true }
+# ui = { workspace = true }
 
 leptos = { workspace = true }
 leptos_router = { workspace = true }
@@ -53,8 +53,8 @@ site-root = "target/site"
 site-pkg-dir = "pkg"
 tailwind-input-file = "style/tailwind.css"
 assets-dir = "public"
-site-addr = "0.0.0.0:3000"
-reload-port = 3001
+site-addr = "0.0.0.0:3854"
+reload-port = 3855
 browserquery = "defaults"
 lib-features = ["hydrate"]
 lib-default-features = false
