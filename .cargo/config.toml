@@ -1,0 +1,4 @@
+# .cargo/config.toml
+[alias]
+# cargo showcase			# Запуск витрины из корня workspace
+showcase = "leptos watch '-- --package showcase --project crates/rust-kit-showcase"
