@@ -5,9 +5,6 @@ use leptos::prelude::*;
 use leptos_axum::{generate_route_list, LeptosRoutes};
 
 #[cfg(feature = "ssr")]
-use leptos_meta::*;
-
-#[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
     use axum::Router;
@@ -36,7 +33,11 @@ async fn main() {
 
 #[cfg(feature = "ssr")]
 fn shell(options: LeptosOptions) -> impl IntoView {
+	
+	use leptos_meta::{provide_meta_context, MetaTags, Stylesheet};
     use showcase::App;
+
+	provide_meta_context();
 
     view! {
         <!DOCTYPE html>
@@ -44,9 +45,10 @@ fn shell(options: LeptosOptions) -> impl IntoView {
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <MetaTags/>
+				<Stylesheet id="leptos" href="/pkg/showcase.css"/>
                 <AutoReload options=options.clone()/>
                 <HydrationScripts options/>
-                <MetaTags/>
             </head>
             <body>
                 <App/>
