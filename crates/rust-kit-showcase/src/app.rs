@@ -11,8 +11,8 @@ use crate::components::navigation::app_wrapper::AppWrapper;
 use crate::domain::docs::routing::docs_layout::DocsLayout;
 use crate::domain::docs::routing::page_all_demos::PageAllDemos;
 use crate::domain::docs::routing::shared_routes_demo::SharedRoutesDemo;
+use crate::routes::page_home::PageHome;
 use crate::routes::page_not_found::PageNotFound;
-
 #[component]
 pub fn App() -> impl IntoView {
     provide_meta_context();
@@ -41,6 +41,7 @@ pub fn App() -> impl IntoView {
             <AppWrapper>
                 <main class="overflow-y-auto flex-1 overflow-x-clip">
                     <Routes fallback=|| PageNotFound.into_view()>
+                        <Route path=StaticSegment("") view=PageHome />
                         <ParentRoute path=StaticSegment("docs") view=DocsLayout>
                             <Route
                                 path=StaticSegment(ComponentsRoutes::segment())
