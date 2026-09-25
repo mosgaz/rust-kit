@@ -2,8 +2,8 @@
 resolver = "3"
 members = [
 	# ─── Внутренние крейты ───
-	# "crates/*",
-	"crates/rust-kit-showcase",
+	"crates/*",
+	# "crates/rust-kit-showcase",
 	# ─── Вендорные крейты форка ───
 	"vendor/rust-leptos-ui/app",
 	"vendor/rust-leptos-ui/server",
@@ -43,7 +43,7 @@ app_routes = { path = "vendor/rust-leptos-ui/app_crates/app_routes" }
 app_components = { path = "vendor/rust-leptos-ui/app_crates/app_components" }
 
 # ─── Внутренние пакеты ───
-# ui = { path = "crates/rust-kit-ui" }
+ui = { path = "crates/rust-kit-ui" }
 showcase = { path = "crates/rust-kit-showcase" }
 
 # ─── Внешние зависимости ───

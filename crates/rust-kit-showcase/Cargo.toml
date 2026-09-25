@@ -22,11 +22,11 @@ ssr = [
     "dep:tower-http",
     "dep:tracing",
     "dep:tracing-subscriber",
-    # "ui/ssr",
+    "ui/ssr",
 ]
 
 [dependencies]
-# ui = { workspace = true }
+ui = { workspace = true }
 
 leptos = { workspace = true }
 leptos_router = { workspace = true }
