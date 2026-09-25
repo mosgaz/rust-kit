@@ -2,3 +2,6 @@
 [alias]
 # cargo showcase			# Запуск витрины из корня workspace
 showcase = "leptos watch '-- --package showcase --project crates/rust-kit-showcase"
+
+# [build]
+# rustflags = ["--cfg", "erase_components"]

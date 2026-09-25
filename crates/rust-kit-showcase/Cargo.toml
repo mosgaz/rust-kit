@@ -26,6 +26,14 @@ ssr = [
 ]
 
 [dependencies]
+validator = { workspace = true }
+resend-rs = { workspace = true }
+http = { workspace = true }
+strum = { workspace = true }
+reqwest = { workspace = true }
+tw_merge = { workspace = true }
+icons = { workspace = true }
+leptos_ui = { workspace = true }
 ui = { workspace = true }
 
 leptos = { workspace = true }
@@ -45,7 +53,16 @@ tower-http = { workspace = true, optional = true }
 tracing = { workspace = true, optional = true }
 tracing-subscriber = { workspace = true, optional = true }
 
+# ─── Vendor ───
+registry = { workspace = true }
+app_components = { workspace = true }
+app_config = { workspace = true }
+app_domain = { workspace = true }
+app_routes = { workspace = true }
+markdown_crate = { workspace = true }
+
 [package.metadata.leptos]
+disable-erase-components = false
 name = "showcase"
 bin-package = "showcase"
 lib-package = "showcase"

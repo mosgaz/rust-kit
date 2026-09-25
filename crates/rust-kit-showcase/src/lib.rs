@@ -1,5 +1,12 @@
 pub mod app;
 
+pub mod components;
+pub mod domain;
+pub mod utils;
+pub mod routes;
+pub mod __registry__;
+pub mod registry;
+
 pub use app::App;
 
 #[cfg(feature = "hydrate")]
