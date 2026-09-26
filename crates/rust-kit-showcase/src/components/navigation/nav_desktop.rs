@@ -95,7 +95,7 @@ pub fn NavDesktop() -> impl IntoView {
             </span>
 
             <Link
-                href=ComponentsRoutes::Button.to_route()
+                href=ComponentsRoutes::base_url()
                 class=NAV_LINK_CLASS
                 match_type=PathMatchType::StartsWithExcept(
                     ComponentsRoutes::base_url().to_string(),
