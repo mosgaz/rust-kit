@@ -1,4 +1,5 @@
 pub mod create;
 pub mod docs;
+pub mod icons;
 pub mod markdown_ui;
 pub mod themes;

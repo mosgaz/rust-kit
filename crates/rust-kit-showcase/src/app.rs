@@ -12,6 +12,7 @@ use crate::domain::docs::routing::docs_layout::DocsLayout;
 use crate::domain::docs::routing::page_all_demos::PageAllDemos;
 use crate::domain::docs::routing::shared_routes_demo::SharedRoutesDemo;
 use crate::routes::page_home::PageHome;
+use crate::domain::icons::page_icons::PageIcons;
 use crate::routes::page_not_found::PageNotFound;
 #[component]
 pub fn App() -> impl IntoView {
@@ -42,6 +43,7 @@ pub fn App() -> impl IntoView {
                 <main class="overflow-y-auto flex-1 overflow-x-clip">
                     <Routes fallback=|| PageNotFound.into_view()>
                         <Route path=StaticSegment("") view=PageHome />
+                        <Route path=StaticSegment("icons") view=PageIcons />
                         <ParentRoute path=StaticSegment("docs") view=DocsLayout>
                             <Route
                                 path=StaticSegment(ComponentsRoutes::segment())
