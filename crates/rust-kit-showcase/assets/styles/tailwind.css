@@ -1,5 +1,14 @@
 @import "tailwindcss";
 @import "./colors.css";
+@import "./tw-animate.css";
+@import "./Animate.css";
+@import "./highlight_code.css";
+
+/* Scan sources from both showcase and vendor */
+@source "../../../vendor/rust-leptos-ui/app/src/**/*.rs";
+@source "../../../vendor/rust-leptos-ui/app_crates/**/*.rs";
+@source "../../../vendor/rust-leptos-ui/crates/**/*.rs";
+@source "../../src/**/*.rs";
 
 @theme inline {
   --color-background: var(--background);
